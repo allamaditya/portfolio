@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-midnight: #09090D;
+    --bg-deep-charcoal: #121017;
+    --bg-elevated-charcoal: #1B1721;
+    --royal-purple: #542B78;
+    --deep-violet: #32144F;
+    --champagne-gold: #D4AF72;
+    --champagne-gold-light: #E7C995;
+    --soft-white: #F5F3F7;
+    --muted-grey: #A7A1AF;
+    --subtle-border: #302838;
+  }
+
+  body {
+    background-color: #09090D;
+    color: #F5F3F7;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+/* Custom luxury scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #09090D;
+}
+::-webkit-scrollbar-thumb {
+  background: #251B33;
+  border-radius: 4px;
+  border: 1px solid #302838;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #542B78;
+}
+
+/* Subtle ambient glow effects */
+.ambient-glow-purple {
+  background: radial-gradient(circle at 50% 30%, rgba(84, 43, 120, 0.18) 0%, rgba(50, 20, 79, 0.05) 55%, transparent 75%);
+}
+
+.ambient-glow-gold {
+  background: radial-gradient(circle at 50% 50%, rgba(212, 175, 114, 0.08) 0%, transparent 65%);
+}
+
+/* Gold shimmer border utility */
+.gold-border-glow {
+  border: 1px solid rgba(212, 175, 114, 0.25);
+  box-shadow: 0 0 25px rgba(212, 175, 114, 0.05);
+}
+
+.purple-border-glow {
+  border: 1px solid rgba(84, 43, 120, 0.35);
+  box-shadow: 0 0 30px rgba(84, 43, 120, 0.08);
+}
+
