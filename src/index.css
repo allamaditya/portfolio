@@ -18,6 +18,7 @@
     background-color: #09090D;
     color: #F5F3F7;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 }
 
@@ -56,4 +57,271 @@
   border: 1px solid rgba(84, 43, 120, 0.35);
   box-shadow: 0 0 30px rgba(84, 43, 120, 0.08);
 }
+
+/* ========================================================
+   ARCHITECTURAL GOLD LIGHT THEME (HIGH-CONTRAST LUXURY)
+   ======================================================== */
+[data-theme="light"],
+.theme-architectural {
+  --bg-midnight: #F9F7F4;
+  --bg-deep-charcoal: #F1EEE8;
+  --bg-elevated-charcoal: #FFFFFF;
+  --royal-purple: #542577;
+  --deep-violet: #3D1259;
+  --champagne-gold: #966A1F;
+  --champagne-gold-light: #B88B42;
+  --soft-white: #14121A;
+  --muted-grey: #5C5666;
+  --subtle-border: #E2DACB;
+}
+
+html[data-theme="light"],
+html.theme-architectural,
+[data-theme="light"] body,
+.theme-architectural body {
+  background-color: #F9F7F4 !important;
+  color: #14121A !important;
+}
+
+[data-theme="light"] ::selection,
+.theme-architectural ::selection {
+  background-color: #EBDCB8 !important;
+  color: #14121A !important;
+}
+
+/* Scrollbar in Architectural Gold */
+[data-theme="light"] ::-webkit-scrollbar-track,
+.theme-architectural ::-webkit-scrollbar-track {
+  background: #F1EEE8;
+}
+[data-theme="light"] ::-webkit-scrollbar-thumb,
+.theme-architectural ::-webkit-scrollbar-thumb {
+  background: #D9CEBD;
+  border: 1px solid #C8BCAC;
+}
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover,
+.theme-architectural ::-webkit-scrollbar-thumb:hover {
+  background: #966A1F;
+}
+
+/* Canvas & Section Background Overrides */
+[data-theme="light"] .bg-\[\#09090D\],
+.theme-architectural .bg-\[\#09090D\] {
+  background-color: #F9F7F4 !important;
+}
+[data-theme="light"] .bg-\[\#09090D\]\/95,
+.theme-architectural .bg-\[\#09090D\]\/95 {
+  background-color: rgba(249, 247, 244, 0.96) !important;
+}
+[data-theme="light"] .bg-\[\#09090D\]\/80,
+.theme-architectural .bg-\[\#09090D\]\/80 {
+  background-color: rgba(249, 247, 244, 0.88) !important;
+}
+[data-theme="light"] .bg-\[\#09090D\]\/98,
+.theme-architectural .bg-\[\#09090D\]\/98 {
+  background-color: rgba(249, 247, 244, 0.98) !important;
+}
+[data-theme="light"] .bg-\[\#09090D\]\/40,
+.theme-architectural .bg-\[\#09090D\]\/40 {
+  background-color: rgba(241, 238, 232, 0.8) !important;
+}
+
+[data-theme="light"] .bg-\[\#121017\],
+.theme-architectural .bg-\[\#121017\] {
+  background-color: #F1EEE8 !important;
+}
+[data-theme="light"] .bg-\[\#121017\]\/60,
+.theme-architectural .bg-\[\#121017\]\/60 {
+  background-color: rgba(241, 238, 232, 0.85) !important;
+}
+[data-theme="light"] .bg-\[\#121017\]\/50,
+.theme-architectural .bg-\[\#121017\]\/50 {
+  background-color: rgba(241, 238, 232, 0.75) !important;
+}
+
+/* Elevated Cards & Panels (Crisp Pure White with Architectural Shadow) */
+[data-theme="light"] .bg-\[\#1B1721\],
+.theme-architectural .bg-\[\#1B1721\] {
+  background-color: #FFFFFF !important;
+  box-shadow: 0 4px 20px -2px rgba(130, 110, 80, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
+}
+[data-theme="light"] .hover\:bg-\[\#1B1721\]:hover,
+.theme-architectural .hover\:bg-\[\#1B1721\]:hover {
+  background-color: #F7F5F0 !important;
+}
+[data-theme="light"] .hover\:bg-\[\#121017\]:hover,
+.theme-architectural .hover\:bg-\[\#121017\]:hover {
+  background-color: #EAE6DE !important;
+}
+[data-theme="light"] .hover\:bg-\[\#251F2E\]:hover,
+.theme-architectural .hover\:bg-\[\#251F2E\]:hover {
+  background-color: #EDE8DF !important;
+}
+
+/* Typography High-Contrast Overrides */
+[data-theme="light"] .text-\[\#F5F3F7\],
+.theme-architectural .text-\[\#F5F3F7\] {
+  color: #14121A !important;
+}
+[data-theme="light"] .text-\[\#F5F3F7\]\/90,
+.theme-architectural .text-\[\#F5F3F7\]\/90 {
+  color: #24202B !important;
+}
+[data-theme="light"] .text-\[\#F5F3F7\]\/85,
+.theme-architectural .text-\[\#F5F3F7\]\/85 {
+  color: #2E2938 !important;
+}
+[data-theme="light"] .text-\[\#F5F3F7\]\/80,
+.theme-architectural .text-\[\#F5F3F7\]\/80 {
+  color: #383344 !important;
+}
+[data-theme="light"] .hover\:text-\[\#F5F3F7\]:hover,
+.theme-architectural .hover\:text-\[\#F5F3F7\]:hover {
+  color: #14121A !important;
+}
+
+[data-theme="light"] .text-\[\#A7A1AF\],
+.theme-architectural .text-\[\#A7A1AF\] {
+  color: #5C5666 !important;
+}
+[data-theme="light"] .hover\:text-\[\#A7A1AF\]:hover,
+.theme-architectural .hover\:text-\[\#A7A1AF\]:hover {
+  color: #383344 !important;
+}
+
+/* Champagne Gold Elements (Burnished for High Contrast Legibility) */
+[data-theme="light"] .text-\[\#D4AF72\],
+.theme-architectural .text-\[\#D4AF72\] {
+  color: #94691E !important;
+}
+[data-theme="light"] .hover\:text-\[\#D4AF72\]:hover,
+.theme-architectural .hover\:text-\[\#D4AF72\]:hover {
+  color: #795210 !important;
+}
+[data-theme="light"] .hover\:text-\[\#E7C995\]:hover,
+.theme-architectural .hover\:text-\[\#E7C995\]:hover {
+  color: #795210 !important;
+}
+
+[data-theme="light"] .border-\[\#D4AF72\],
+.theme-architectural .border-\[\#D4AF72\] {
+  border-color: #94691E !important;
+}
+[data-theme="light"] .border-\[\#D4AF72\]\/40,
+[data-theme="light"] .border-\[\#D4AF72\]\/30,
+[data-theme="light"] .border-\[\#D4AF72\]\/50,
+.theme-architectural .border-\[\#D4AF72\]\/40,
+.theme-architectural .border-\[\#D4AF72\]\/30,
+.theme-architectural .border-\[\#D4AF72\]\/50 {
+  border-color: rgba(148, 105, 30, 0.4) !important;
+}
+
+/* Gold CTA Buttons & Badges */
+[data-theme="light"] .bg-\[\#D4AF72\],
+.theme-architectural .bg-\[\#D4AF72\],
+[data-theme="light"] .bg-\[\#D4AF72\] *,
+.theme-architectural .bg-\[\#D4AF72\] * {
+  background-color: #966A1F;
+  color: #FFFFFF !important;
+}
+[data-theme="light"] .bg-\[\#D4AF72\],
+.theme-architectural .bg-\[\#D4AF72\] {
+  background-color: #966A1F !important;
+}
+[data-theme="light"] .bg-\[\#D4AF72\]:hover,
+[data-theme="light"] .hover\:bg-\[\#E7C995\]:hover,
+.theme-architectural .bg-\[\#D4AF72\]:hover,
+.theme-architectural .hover\:bg-\[\#E7C995\]:hover {
+  background-color: #7E5714 !important;
+  color: #FFFFFF !important;
+}
+[data-theme="light"] .bg-\[\#D4AF72\]\/10,
+[data-theme="light"] .bg-\[\#D4AF72\]\/15,
+.theme-architectural .bg-\[\#D4AF72\]\/10,
+.theme-architectural .bg-\[\#D4AF72\]\/15 {
+  background-color: rgba(150, 106, 31, 0.12) !important;
+}
+
+/* Purple Accents */
+[data-theme="light"] .bg-\[\#542B78\]\/40,
+[data-theme="light"] .bg-\[\#542B78\]\/30,
+[data-theme="light"] .bg-\[\#542B78\]\/20,
+.theme-architectural .bg-\[\#542B78\]\/40,
+.theme-architectural .bg-\[\#542B78\]\/30,
+.theme-architectural .bg-\[\#542B78\]\/20 {
+  background-color: rgba(84, 37, 119, 0.08) !important;
+}
+[data-theme="light"] .border-\[\#542B78\],
+.theme-architectural .border-\[\#542B78\] {
+  border-color: #7C45A3 !important;
+}
+
+/* Hairline Dividers & Borders */
+[data-theme="light"] .border-\[\#302838\],
+.theme-architectural .border-\[\#302838\] {
+  border-color: #E2DACB !important;
+}
+[data-theme="light"] .border-\[\#302838\]\/80,
+[data-theme="light"] .border-\[\#302838\]\/60,
+[data-theme="light"] .border-\[\#302838\]\/40,
+.theme-architectural .border-\[\#302838\]\/80,
+.theme-architectural .border-\[\#302838\]\/60,
+.theme-architectural .border-\[\#302838\]\/40 {
+  border-color: rgba(226, 218, 203, 0.85) !important;
+}
+[data-theme="light"] .divide-\[\#302838\]\/60 > :not([hidden]) ~ :not([hidden]),
+.theme-architectural .divide-\[\#302838\]\/60 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(226, 218, 203, 0.8) !important;
+}
+
+/* Shadows Softened for Light Mode */
+[data-theme="light"] .shadow-2xl,
+[data-theme="light"] .shadow-xl,
+.theme-architectural .shadow-2xl,
+.theme-architectural .shadow-xl {
+  box-shadow: 0 10px 30px -4px rgba(100, 80, 50, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04) !important;
+}
+[data-theme="light"] .shadow-black\/80,
+[data-theme="light"] .shadow-black\/60,
+[data-theme="light"] .shadow-black\/50,
+[data-theme="light"] .shadow-black\/40,
+[data-theme="light"] .shadow-black\/90,
+[data-theme="light"] .shadow-black\/95,
+.theme-architectural .shadow-black\/80,
+.theme-architectural .shadow-black\/60,
+.theme-architectural .shadow-black\/50,
+.theme-architectural .shadow-black\/40,
+.theme-architectural .shadow-black\/90,
+.theme-architectural .shadow-black\/95 {
+  box-shadow: 0 12px 35px -4px rgba(80, 60, 40, 0.09), 0 4px 12px -2px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Gradient Headline Fix */
+[data-theme="light"] .text-transparent.bg-clip-text,
+.theme-architectural .text-transparent.bg-clip-text {
+  background-image: linear-gradient(to right, #14121A, #14121A, #94691E) !important;
+}
+
+/* Inputs in Light Mode */
+[data-theme="light"] input,
+[data-theme="light"] textarea,
+.theme-architectural input,
+.theme-architectural textarea {
+  background-color: #FFFFFF !important;
+  color: #14121A !important;
+  border-color: #E2DACB !important;
+}
+[data-theme="light"] input::placeholder,
+[data-theme="light"] textarea::placeholder,
+.theme-architectural input::placeholder,
+.theme-architectural textarea::placeholder {
+  color: #8C8496 !important;
+}
+
+/* Ambient Backdrops lightened */
+[data-theme="light"] .ambient-glow-purple,
+.theme-architectural .ambient-glow-purple {
+  background: radial-gradient(circle at 50% 30%, rgba(130, 80, 180, 0.07) 0%, transparent 70%) !important;
+}
+
 

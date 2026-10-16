@@ -1,15 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
-import { Menu, X, ArrowUpRight, FileText } from 'lucide-react';
+import { Menu, X, ArrowUpRight, FileText, Sun, Moon } from 'lucide-react';
+import { motion, useScroll, useSpring } from 'motion/react';
+import { useTheme } from '../context/ThemeContext';
 
 interface NavbarProps {
   onOpenResumeModal: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenResumeModal }) => {
+  const { theme, toggleTheme, setTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+
+  // Track page scroll depth with a smooth executive spring
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 140,
+    damping: 28,
+    restDelta: 0.001,
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,15 +60,24 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResumeModal }) => {
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-[#09090D]/95 backdrop-blur-md border-b border-[#302838] py-3.5 shadow-2xl shadow-black/80'
-          : 'bg-[#09090D]/80 backdrop-blur-sm border-b border-[#302838]/40 py-5'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-8">
+    <>
+      {/* Thin Elegant Champagne-Gold Scroll Progress Bar */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#D4AF72] via-[#F3DEB8] to-[#D4AF72] origin-left z-[60] shadow-[0_0_12px_rgba(212,175,114,0.65)] pointer-events-none"
+        style={{ scaleX }}
+        role="progressbar"
+        aria-label="Portfolio scroll progress"
+      />
+
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? 'bg-[#09090D]/95 backdrop-blur-md border-b border-[#302838] py-3.5 shadow-2xl shadow-black/80'
+            : 'bg-[#09090D]/80 backdrop-blur-sm border-b border-[#302838]/40 py-5'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between gap-8">
           {/* Zone 1: Brand Mark & Name */}
           <a
             href="#"
@@ -105,6 +125,46 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResumeModal }) => {
 
           {/* Zone 3: Primary Action & Quick Access */}
           <div className="hidden sm:flex items-center gap-3 shrink-0">
+            {/* Executive Theme Switcher Segmented Toggle */}
+            <div 
+              className="flex items-center rounded-lg bg-[#121017] border border-[#302838] p-0.5 shadow-inner shrink-0"
+              role="radiogroup"
+              aria-label="Portfolio Theme"
+            >
+              <button
+                type="button"
+                onClick={() => setTheme('midnight')}
+                className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium transition-all duration-200 ${
+                  theme === 'midnight'
+                    ? 'bg-[#1B1721] text-[#D4AF72] border border-[#D4AF72]/40 shadow-sm'
+                    : 'text-[#A7A1AF] hover:text-[#F5F3F7] border border-transparent'
+                }`}
+                title="Switch to Midnight dark theme"
+                aria-label="Midnight dark theme"
+                role="radio"
+                aria-checked={theme === 'midnight'}
+              >
+                <Moon className="w-3.5 h-3.5" />
+                <span className="hidden xl:inline">Midnight</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setTheme('architectural')}
+                className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium transition-all duration-200 ${
+                  theme === 'architectural'
+                    ? 'bg-[#FFFFFF] text-[#966A1F] border border-[#966A1F]/40 shadow-sm'
+                    : 'text-[#A7A1AF] hover:text-[#F5F3F7] border border-transparent'
+                }`}
+                title="Switch to Architectural Gold light theme"
+                aria-label="Architectural Gold light theme"
+                role="radio"
+                aria-checked={theme === 'architectural'}
+              >
+                <Sun className="w-3.5 h-3.5" />
+                <span className="hidden xl:inline">Architectural</span>
+              </button>
+            </div>
+
             <button
               onClick={onOpenResumeModal}
               className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium text-[#F5F3F7] bg-[#1B1721] hover:bg-[#251F2E] border border-[#302838] hover:border-[#D4AF72]/40 rounded-lg transition-colors whitespace-nowrap shrink-0"
@@ -122,8 +182,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResumeModal }) => {
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Actions & Menu Button */}
           <div className="flex sm:hidden items-center gap-2">
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="p-2 text-xs font-medium text-[#D4AF72] bg-[#1B1721] border border-[#302838] hover:border-[#D4AF72]/50 rounded-lg transition-colors flex items-center justify-center"
+              aria-label={`Switch to ${theme === 'midnight' ? 'Architectural Gold light' : 'Midnight dark'} theme`}
+              title={`Switch to ${theme === 'midnight' ? 'Architectural Gold' : 'Midnight'}`}
+            >
+              {theme === 'midnight' ? <Sun className="w-4 h-4 text-[#D4AF72]" /> : <Moon className="w-4 h-4 text-[#966A1F]" />}
+            </button>
             <button
               onClick={onOpenResumeModal}
               className="p-2 text-xs font-medium text-[#D4AF72] bg-[#1B1721] border border-[#302838] rounded-lg"
@@ -144,17 +213,58 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResumeModal }) => {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-b border-[#302838] bg-[#09090D]/98 px-4 pt-3 pb-6 mt-3 space-y-2">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 text-sm font-medium text-[#A7A1AF] hover:text-[#D4AF72] hover:bg-[#1B1721] rounded-md transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
+        <div className="lg:hidden border-b border-[#302838] bg-[#09090D]/98 px-4 pt-3 pb-6 mt-3 space-y-3">
+          {/* Theme Perspective Switcher Row */}
+          <div className="p-2.5 rounded-xl bg-[#121017] border border-[#302838]">
+            <div className="flex items-center justify-between mb-2 px-1">
+              <span className="text-[11px] font-semibold text-[#D4AF72] uppercase tracking-wider">
+                Theme Perspective
+              </span>
+              <span className="text-[10px] text-[#A7A1AF] font-mono">
+                {theme === 'midnight' ? 'Midnight (Dark)' : 'Architectural (Light)'}
+              </span>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <button
+                type="button"
+                onClick={() => setTheme('midnight')}
+                className={`flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-medium border transition-colors ${
+                  theme === 'midnight'
+                    ? 'bg-[#1B1721] text-[#D4AF72] border-[#D4AF72] shadow-sm'
+                    : 'bg-[#121017] text-[#A7A1AF] border-[#302838]'
+                }`}
+              >
+                <Moon className="w-3.5 h-3.5" />
+                <span>Midnight Dark</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setTheme('architectural')}
+                className={`flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-medium border transition-colors ${
+                  theme === 'architectural'
+                    ? 'bg-[#FFFFFF] text-[#966A1F] border-[#966A1F] shadow-sm'
+                    : 'bg-[#121017] text-[#A7A1AF] border-[#302838]'
+                }`}
+              >
+                <Sun className="w-3.5 h-3.5" />
+                <span>Architectural</span>
+              </button>
+            </div>
+          </div>
+
+          <div className="space-y-1">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="block px-3 py-2 text-sm font-medium text-[#A7A1AF] hover:text-[#D4AF72] hover:bg-[#1B1721] rounded-md transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+
           <div className="pt-3 border-t border-[#302838] flex flex-col gap-2">
             <button
               onClick={() => {
@@ -178,5 +288,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResumeModal }) => {
         </div>
       )}
     </header>
+    </>
   );
 };

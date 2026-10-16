@@ -1,12 +1,14 @@
 import React from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
-import { Linkedin, Github, Instagram, ArrowUp, FileText } from 'lucide-react';
+import { Linkedin, Github, Instagram, ArrowUp, FileText, Sun, Moon } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 interface FooterProps {
   onOpenResumeModal: () => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({ onOpenResumeModal }) => {
+  const { theme, toggleTheme } = useTheme();
   const currentYear = new Date().getFullYear();
 
   const scrollToTop = () => {
@@ -82,8 +84,30 @@ export const Footer: React.FC<FooterProps> = ({ onOpenResumeModal }) => {
             &copy; {currentYear} {PORTFOLIO_DATA.identity.name}. All rights reserved. Built with precision and operational discipline.
           </div>
 
-          <div className="flex items-center gap-6">
-            <span>Andhra University MBA Candidate</span>
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+            {/* Theme switcher control in footer */}
+            <button
+              onClick={toggleTheme}
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#121017] border border-[#302838] hover:border-[#D4AF72]/40 text-[#A7A1AF] hover:text-[#D4AF72] transition-colors"
+              title="Toggle Portfolio Theme"
+              aria-label="Toggle theme"
+            >
+              {theme === 'midnight' ? (
+                <>
+                  <Sun className="w-3.5 h-3.5 text-[#D4AF72]" />
+                  <span>Theme: Midnight</span>
+                  <span className="text-[10px] text-[#A7A1AF] font-mono uppercase bg-[#1B1721] px-1.5 py-0.5 rounded border border-[#302838]">Light Mode</span>
+                </>
+              ) : (
+                <>
+                  <Moon className="w-3.5 h-3.5 text-[#966A1F]" />
+                  <span>Theme: Architectural</span>
+                  <span className="text-[10px] text-[#5C5666] font-mono uppercase bg-[#FFFFFF] px-1.5 py-0.5 rounded border border-[#E2DACB]">Dark Mode</span>
+                </>
+              )}
+            </button>
+
+            <span>MBA Candidate · Andhra Univ</span>
             <span className="text-[#302838]" aria-hidden="true">·</span>
             <button
               onClick={scrollToTop}
