@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { PORTFOLIO_DATA, Project } from '../data/portfolioData';
 import { ProjectDetailModal } from './ProjectDetailModal';
 import { Github, ExternalLink, ArrowRight, Layers, Stethoscope, Car, Wrench, Cloud } from 'lucide-react';
+import { ScrollReveal, StaggerContainer, StaggerItem } from './ScrollReveal';
 
 export const ProjectsSection: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<string>('all');
@@ -175,7 +176,7 @@ export const ProjectsSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-12">
+        <ScrollReveal direction="up" distance={20} className="max-w-3xl mb-12">
           <div className="text-xs font-semibold text-[#D4AF72] uppercase tracking-wider mb-2">
             Technical &amp; Systems Portfolio
           </div>
@@ -186,7 +187,7 @@ export const ProjectsSection: React.FC = () => {
           <p className="text-[#A7A1AF] text-base sm:text-lg leading-relaxed">
             Architectural solutions and applications reflecting technical engineering foundations in Java, Angular, SQL, and healthcare workflow systems.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Filter Tabs */}
         <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none">
@@ -206,9 +207,9 @@ export const ProjectsSection: React.FC = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <StaggerContainer delayChildren={0.15} staggerChildren={0.12} className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {filteredProjects.map((project) => (
-            <div
+            <StaggerItem
               key={project.id}
               className="rounded-2xl bg-[#1B1721] border border-[#302838] hover:border-[#542B78] transition-all duration-300 p-6 sm:p-8 flex flex-col justify-between group shadow-xl shadow-black/50 hover:shadow-[#542B78]/10"
             >
@@ -275,12 +276,12 @@ export const ProjectsSection: React.FC = () => {
                 )}
               </div>
 
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
 
         {/* Credibility & Work in Progress Note */}
-        <div className="mt-12 p-6 rounded-2xl bg-[#121017] border border-[#302838] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <ScrollReveal direction="up" delay={0.2} distance={20} className="mt-12 p-6 rounded-2xl bg-[#121017] border border-[#302838] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="space-y-1">
             <div className="text-xs font-semibold text-[#D4AF72] uppercase tracking-wider">
               Project Governance &amp; Code Access
@@ -298,7 +299,7 @@ export const ProjectsSection: React.FC = () => {
             <Github className="w-4 h-4" />
             <span>Open GitHub Repos</span>
           </a>
-        </div>
+        </ScrollReveal>
 
       </div>
 

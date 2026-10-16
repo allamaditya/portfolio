@@ -1,6 +1,7 @@
 import React from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { GraduationCap, Award, BookOpen, Calendar, CheckCircle2 } from 'lucide-react';
+import { ScrollReveal, StaggerContainer, StaggerItem } from './ScrollReveal';
 
 export const EducationSection: React.FC = () => {
   return (
@@ -8,7 +9,7 @@ export const EducationSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-16">
+        <ScrollReveal direction="up" distance={20} className="max-w-3xl mb-16">
           <div className="text-xs font-semibold text-[#D4AF72] uppercase tracking-wider mb-2">
             Academic &amp; Professional Growth
           </div>
@@ -19,12 +20,12 @@ export const EducationSection: React.FC = () => {
           <p className="text-[#A7A1AF] text-base sm:text-lg leading-relaxed">
             The deliberate synthesis of undergraduate engineering education with executive business administration and continuous practical enablement.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Education Degrees Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        <StaggerContainer delayChildren={0.15} staggerChildren={0.12} className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           {PORTFOLIO_DATA.education.map((edu, idx) => (
-            <div
+            <StaggerItem
               key={edu.degree}
               className={`p-6 sm:p-8 rounded-2xl border transition-all duration-300 flex flex-col justify-between ${
                 idx === 0
@@ -79,12 +80,12 @@ export const EducationSection: React.FC = () => {
               <div className="mt-6 pt-4 border-t border-[#302838] text-[11px] text-[#A7A1AF]">
                 <span>Verified academic record</span>
               </div>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
 
         {/* Certifications & Professional Development Area */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-[#1B1721] border border-[#302838]">
+        <ScrollReveal direction="up" delay={0.2} distance={20} className="p-6 sm:p-8 rounded-2xl bg-[#1B1721] border border-[#302838]">
           <div className="flex items-center gap-3 mb-6">
             <div className="p-2.5 rounded-xl bg-[#121017] border border-[#302838] text-[#D4AF72]">
               <Award className="w-5 h-5" />
@@ -124,9 +125,10 @@ export const EducationSection: React.FC = () => {
           <div className="mt-6 pt-4 border-t border-[#302838] text-xs text-[#A7A1AF] text-center">
             Additional professional certifications and specialized healthcare IT coursework can be updated in <code className="text-[#D4AF72]">portfolioData.ts</code>.
           </div>
-        </div>
+        </ScrollReveal>
 
       </div>
     </section>
   );
 };
+

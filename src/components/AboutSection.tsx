@@ -1,6 +1,7 @@
 import React from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { Code2, Building2, GitMerge, GraduationCap, CheckCircle2 } from 'lucide-react';
+import { ScrollReveal, StaggerContainer, StaggerItem } from './ScrollReveal';
 
 export const AboutSection: React.FC = () => {
   const highlights = [
@@ -38,7 +39,7 @@ export const AboutSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-16">
+        <ScrollReveal direction="up" distance={20} className="max-w-3xl mb-16">
           <div className="text-xs font-semibold text-[#D4AF72] uppercase tracking-wider mb-2">
             Professional Narrative
           </div>
@@ -49,13 +50,13 @@ export const AboutSection: React.FC = () => {
           <p className="text-[#A7A1AF] text-base sm:text-lg leading-relaxed">
             A distinctive career evolution from software engineering into healthcare operations management, built on the principle that digital systems succeed only when they align with human workflows.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Two-Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
           {/* Left Column: Narrative Journey */}
-          <div className="lg:col-span-6 space-y-6 text-[#A7A1AF] leading-relaxed text-base">
+          <ScrollReveal direction="up" delay={0.1} distance={24} className="lg:col-span-6 space-y-6 text-[#A7A1AF] leading-relaxed text-base">
             <div className="p-6 rounded-2xl bg-[#1B1721] border border-[#302838]">
               <h3 className="text-lg font-bold text-[#F5F3F7] mb-3 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#D4AF72]" />
@@ -98,10 +99,10 @@ export const AboutSection: React.FC = () => {
                 </li>
               </ul>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Right Column: Compact Highlights Panel */}
-          <div className="lg:col-span-6 space-y-4">
+          <StaggerContainer delayChildren={0.2} staggerChildren={0.12} className="lg:col-span-6 space-y-4">
             <div className="text-xs font-semibold text-[#A7A1AF] uppercase tracking-wider mb-2">
               Strategic Pillar Matrix
             </div>
@@ -109,7 +110,7 @@ export const AboutSection: React.FC = () => {
             {highlights.map((item) => {
               const Icon = item.icon;
               return (
-                <div
+                <StaggerItem
                   key={item.title}
                   className="p-5 rounded-2xl bg-[#1B1721] border border-[#302838] hover:border-[#D4AF72]/40 transition-all duration-300 group"
                 >
@@ -129,20 +130,20 @@ export const AboutSection: React.FC = () => {
                       </p>
                     </div>
                   </div>
-                </div>
+                </StaggerItem>
               );
             })}
 
             {/* Quick summary box */}
-            <div className="p-5 rounded-2xl bg-gradient-to-br from-[#1B1721] to-[#251833] border border-[#542B78]/40">
+            <StaggerItem className="p-5 rounded-2xl bg-gradient-to-br from-[#1B1721] to-[#251833] border border-[#542B78]/40">
               <div className="text-xs font-semibold text-[#D4AF72] uppercase tracking-wide">
                 Target Collaboration Focus
               </div>
               <p className="text-xs text-[#F5F3F7]/90 mt-2 leading-relaxed">
                 Open to discussions with healthcare networks, health-tech companies, and digital transformation initiatives seeking a pragmatic leader who speaks both fluent engineering and operational healthcare.
               </p>
-            </div>
-          </div>
+            </StaggerItem>
+          </StaggerContainer>
 
         </div>
 

@@ -11,6 +11,7 @@ import {
   ArrowUpRight,
   MessageSquare
 } from 'lucide-react';
+import { ScrollReveal, StaggerContainer, StaggerItem } from './ScrollReveal';
 
 export const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -59,7 +60,7 @@ export const ContactSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-16">
+        <ScrollReveal direction="up" distance={20} className="max-w-3xl mb-16">
           <div className="text-xs font-semibold text-[#D4AF72] uppercase tracking-wider mb-2">
             Get In Touch
           </div>
@@ -70,13 +71,13 @@ export const ContactSection: React.FC = () => {
           <p className="text-[#A7A1AF] text-base sm:text-lg leading-relaxed">
             Interested in healthcare IT, technology delivery, software implementation, or opportunities where business operations and technology intersect? Let&apos;s connect.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* 2-Column Contact Container */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
           {/* Left Column: Direct Outreach & Verified Channels */}
-          <div className="lg:col-span-5 space-y-6">
+          <ScrollReveal direction="up" delay={0.1} distance={24} className="lg:col-span-5 space-y-6">
             
             {/* Direct Email Card */}
             <div className="p-6 rounded-2xl bg-[#1B1721] border border-[#302838] hover:border-[#D4AF72]/40 transition-colors">
@@ -190,10 +191,10 @@ export const ContactSection: React.FC = () => {
               <span className="text-[#D4AF72] font-semibold">Response Commitment:</span> Inquiries regarding hospital operations, healthcare IT coordination, and technology opportunities are typically addressed within 24–48 hours.
             </div>
 
-          </div>
+          </ScrollReveal>
 
           {/* Right Column: Direct Message Composer & Form */}
-          <div className="lg:col-span-7">
+          <ScrollReveal direction="up" delay={0.2} distance={24} className="lg:col-span-7">
             <div className="p-6 sm:p-8 rounded-2xl bg-[#1B1721] border border-[#302838] shadow-2xl shadow-black/60 relative">
               
               <div className="mb-6">
@@ -311,7 +312,7 @@ export const ContactSection: React.FC = () => {
               )}
 
             </div>
-          </div>
+          </ScrollReveal>
 
         </div>
 

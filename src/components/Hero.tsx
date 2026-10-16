@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { ArrowRight, Linkedin, Github, Instagram, Layers, Activity, Database, Server, Stethoscope, Sparkles } from 'lucide-react';
+import { ScrollReveal, StaggerContainer, StaggerItem } from './ScrollReveal';
 
 interface HeroProps {
   onOpenResumeModal: () => void;
@@ -42,7 +43,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResumeModal }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
           {/* Left Column: Typographic Hierarchy */}
-          <div className="lg:col-span-7 flex flex-col items-start space-y-6">
+          <ScrollReveal direction="up" duration={0.7} distance={20} className="lg:col-span-7 flex flex-col items-start space-y-6">
             
             {/* Executive Status Kicker (unboxed clean text per Zero-Pill discipline) */}
             <div className="flex flex-wrap items-center gap-2 text-xs font-semibold tracking-wider text-[#A7A1AF] uppercase">
@@ -150,10 +151,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResumeModal }) => {
               </div>
             </div>
 
-          </div>
+          </ScrollReveal>
 
           {/* Right Column: Luxury Abstract System & Workflow Bridge Visual */}
-          <div className="lg:col-span-5 flex flex-col items-center">
+          <ScrollReveal direction="up" delay={0.2} duration={0.7} distance={20} className="lg:col-span-5 flex flex-col items-center">
             
             {/* Visual View Switcher (System Architecture vs Executive Portrait) */}
             <div className="w-full max-w-md mb-3 flex items-center justify-between px-2">
@@ -328,36 +329,36 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResumeModal }) => {
 
             </div>
 
-          </div>
+          </ScrollReveal>
 
         </div>
 
-        {/* 4-Column Metric / Strategic Positioning Strip below hero split per Section 13 Spatial Guidelines */}
-        <div className="mt-16 pt-8 border-t border-[#302838] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="p-4 rounded-xl bg-[#121017]/60 border border-[#302838]">
+        {/* 4-Column Metric / Strategic Positioning Strip below hero split */}
+        <StaggerContainer delayChildren={0.25} staggerChildren={0.1} className="mt-16 pt-8 border-t border-[#302838] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <StaggerItem className="p-4 rounded-xl bg-[#121017]/60 border border-[#302838]">
             <div className="text-xs font-semibold text-[#D4AF72] uppercase tracking-wider">Current Focus</div>
             <div className="text-sm font-bold text-[#F5F3F7] mt-1">Hospital Operations</div>
             <div className="text-xs text-[#A7A1AF] mt-1">Clinical workflows, HIS, &amp; vendor coordination</div>
-          </div>
+          </StaggerItem>
 
-          <div className="p-4 rounded-xl bg-[#121017]/60 border border-[#302838]">
+          <StaggerItem className="p-4 rounded-xl bg-[#121017]/60 border border-[#302838]">
             <div className="text-xs font-semibold text-[#D4AF72] uppercase tracking-wider">Technical Heritage</div>
             <div className="text-sm font-bold text-[#F5F3F7] mt-1">Full-Stack at Cognizant</div>
             <div className="text-xs text-[#A7A1AF] mt-1">Java, Angular, SQL &amp; AWS architecture</div>
-          </div>
+          </StaggerItem>
 
-          <div className="p-4 rounded-xl bg-[#121017]/60 border border-[#302838]">
+          <StaggerItem className="p-4 rounded-xl bg-[#121017]/60 border border-[#302838]">
             <div className="text-xs font-semibold text-[#D4AF72] uppercase tracking-wider">Continuous Growth</div>
             <div className="text-sm font-bold text-[#F5F3F7] mt-1">MBA Candidate (2027)</div>
             <div className="text-xs text-[#A7A1AF] mt-1">Andhra University strategic management</div>
-          </div>
+          </StaggerItem>
 
-          <div className="p-4 rounded-xl bg-[#121017]/60 border border-[#302838]">
+          <StaggerItem className="p-4 rounded-xl bg-[#121017]/60 border border-[#302838]">
             <div className="text-xs font-semibold text-[#D4AF72] uppercase tracking-wider">Bilingual Advantage</div>
             <div className="text-sm font-bold text-[#F5F3F7] mt-1">Tech ⇄ Business Bridge</div>
             <div className="text-xs text-[#A7A1AF] mt-1">Turning operational needs into digital systems</div>
-          </div>
-        </div>
+          </StaggerItem>
+        </StaggerContainer>
 
       </div>
     </section>

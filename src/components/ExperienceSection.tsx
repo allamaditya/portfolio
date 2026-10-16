@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { ChevronDown, ChevronUp, Briefcase, Calendar, CheckCircle2, ArrowRight } from 'lucide-react';
+import { ScrollReveal, StaggerContainer, StaggerItem } from './ScrollReveal';
 
 export const ExperienceSection: React.FC = () => {
   const [expandedId, setExpandedId] = useState<string | null>('exp-hospital-ops');
@@ -14,7 +15,7 @@ export const ExperienceSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-16">
+        <ScrollReveal direction="up" distance={20} className="max-w-3xl mb-16">
           <div className="text-xs font-semibold text-[#D4AF72] uppercase tracking-wider mb-2">
             Career Progression
           </div>
@@ -25,7 +26,7 @@ export const ExperienceSection: React.FC = () => {
           <p className="text-[#A7A1AF] text-base sm:text-lg leading-relaxed">
             A clear trajectory from foundational full-stack software development at Cognizant to direct leadership in hospital operations management.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Timeline Container */}
         <div className="relative pl-6 sm:pl-10 border-l border-[#302838] space-y-12 ml-2 sm:ml-4">
@@ -35,7 +36,13 @@ export const ExperienceSection: React.FC = () => {
             const isCurrent = exp.isCurrent;
 
             return (
-              <div key={exp.id} className="relative group">
+              <ScrollReveal
+                key={exp.id}
+                direction="up"
+                delay={index * 0.15}
+                distance={24}
+                className="relative group"
+              >
                 
                 {/* Timeline Node Marker */}
                 <div 
@@ -154,14 +161,14 @@ export const ExperienceSection: React.FC = () => {
 
                 </div>
 
-              </div>
+              </ScrollReveal>
             );
           })}
 
         </div>
 
         {/* Career Transition Summary Callout */}
-        <div className="mt-16 p-6 rounded-2xl bg-[#121017] border border-[#302838] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <ScrollReveal direction="up" delay={0.2} distance={20} className="mt-16 p-6 rounded-2xl bg-[#121017] border border-[#302838] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="space-y-1">
             <div className="text-xs font-semibold text-[#D4AF72] uppercase tracking-wider">
               Career Trajectory &amp; Narrative
@@ -181,7 +188,7 @@ export const ExperienceSection: React.FC = () => {
             <span>See Workflow Framework</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </a>
-        </div>
+        </ScrollReveal>
 
       </div>
     </section>

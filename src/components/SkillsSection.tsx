@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PORTFOLIO_DATA, SkillCategory } from '../data/portfolioData';
 import { Code2, Database, Stethoscope, Building2, Layers } from 'lucide-react';
+import { ScrollReveal, StaggerContainer, StaggerItem } from './ScrollReveal';
 
 export const SkillsSection: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -46,7 +47,7 @@ export const SkillsSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-12">
+        <ScrollReveal direction="up" distance={20} className="max-w-3xl mb-12">
           <div className="text-xs font-semibold text-[#D4AF72] uppercase tracking-wider mb-2">
             Competency Architecture
           </div>
@@ -57,7 +58,7 @@ export const SkillsSection: React.FC = () => {
           <p className="text-[#A7A1AF] text-base sm:text-lg leading-relaxed">
             Transparently categorized competencies spanning enterprise software development, database architecture, healthcare operations, and cross-functional management.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Legend & Guidance */}
         <div className="mb-8 p-4 rounded-xl bg-[#1B1721] border border-[#302838] flex flex-wrap items-center justify-between gap-4">
@@ -110,11 +111,11 @@ export const SkillsSection: React.FC = () => {
         </div>
 
         {/* Skills Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <StaggerContainer delayChildren={0.15} staggerChildren={0.12} className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {filteredCategories.map((category) => {
             const Icon = categoryIcons[category.categoryKey] || Layers;
             return (
-              <div
+              <StaggerItem
                 key={category.categoryKey}
                 className="p-6 sm:p-8 rounded-2xl bg-[#1B1721] border border-[#302838] hover:border-[#542B78] transition-all duration-300 flex flex-col justify-between"
               >
@@ -160,10 +161,10 @@ export const SkillsSection: React.FC = () => {
                   <span>Domain verified</span>
                   <span className="text-[#D4AF72] font-mono">{category.skills.length} skills</span>
                 </div>
-              </div>
+              </StaggerItem>
             );
           })}
-        </div>
+        </StaggerContainer>
 
       </div>
     </section>

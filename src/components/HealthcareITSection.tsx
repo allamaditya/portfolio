@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PORTFOLIO_DATA, WorkflowStage } from '../data/portfolioData';
 import { ArrowRight, CheckCircle2, ChevronRight, Sparkles, Stethoscope, Layers, FileText, Database, ShieldCheck, RefreshCw } from 'lucide-react';
+import { ScrollReveal, StaggerContainer, StaggerItem } from './ScrollReveal';
 
 export const HealthcareITSection: React.FC = () => {
   const [activeStep, setActiveStep] = useState<number>(1);
@@ -28,7 +29,7 @@ export const HealthcareITSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-16">
+        <ScrollReveal direction="up" distance={20} className="max-w-3xl mb-16">
           <div className="text-xs font-semibold text-[#D4AF72] uppercase tracking-wider mb-2">
             Healthcare IT &amp; Digital Transformation
           </div>
@@ -39,10 +40,10 @@ export const HealthcareITSection: React.FC = () => {
           <p className="text-[#A7A1AF] text-base sm:text-lg leading-relaxed">
             My combined background helps me approach technology challenges from both a technical and operational perspective, with an interest in making software systems more useful for the people and organizations that depend on them.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Interactive 6-Stage Workflow Container */}
-        <div className="rounded-2xl bg-[#1B1721] border border-[#D4AF72]/30 p-6 sm:p-8 lg:p-10 shadow-2xl shadow-black/80 relative">
+        <ScrollReveal direction="up" delay={0.15} distance={24} className="rounded-2xl bg-[#1B1721] border border-[#D4AF72]/30 p-6 sm:p-8 lg:p-10 shadow-2xl shadow-black/80 relative">
           
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-6 border-b border-[#302838]">
             <div>
@@ -167,20 +168,22 @@ export const HealthcareITSection: React.FC = () => {
 
           </div>
 
-        </div>
+        </ScrollReveal>
 
         {/* Focus Areas Grid */}
         <div className="mt-16">
-          <div className="text-xs font-semibold text-[#D4AF72] uppercase tracking-wider mb-3">
-            Core Competency Domains
-          </div>
-          <h3 className="text-xl sm:text-2xl font-bold text-[#F5F3F7] mb-8">
-            Digital Transformation Focus Areas
-          </h3>
+          <ScrollReveal direction="up" distance={15} className="mb-8">
+            <div className="text-xs font-semibold text-[#D4AF72] uppercase tracking-wider mb-2">
+              Core Competency Domains
+            </div>
+            <h3 className="text-xl sm:text-2xl font-bold text-[#F5F3F7]">
+              Digital Transformation Focus Areas
+            </h3>
+          </ScrollReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <StaggerContainer delayChildren={0.1} staggerChildren={0.08} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {focusAreas.map((area, i) => (
-              <div
+              <StaggerItem
                 key={i}
                 className="p-5 rounded-2xl bg-[#1B1721] border border-[#302838] hover:border-[#542B78] transition-colors"
               >
@@ -193,9 +196,9 @@ export const HealthcareITSection: React.FC = () => {
                 <p className="text-xs text-[#A7A1AF] leading-relaxed">
                   {area.desc}
                 </p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
 
       </div>

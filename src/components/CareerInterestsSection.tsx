@@ -10,6 +10,7 @@ import {
   CheckCircle2, 
   ArrowUpRight 
 } from 'lucide-react';
+import { ScrollReveal, StaggerContainer, StaggerItem } from './ScrollReveal';
 
 export const CareerInterestsSection: React.FC = () => {
   const iconMap: Record<string, React.ElementType> = {
@@ -26,7 +27,7 @@ export const CareerInterestsSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-16">
+        <ScrollReveal direction="up" distance={20} className="max-w-3xl mb-16">
           <div className="text-xs font-semibold text-[#D4AF72] uppercase tracking-wider mb-2">
             Target Alignments &amp; Opportunities
           </div>
@@ -37,14 +38,14 @@ export const CareerInterestsSection: React.FC = () => {
           <p className="text-[#A7A1AF] text-base sm:text-lg leading-relaxed">
             Roles and strategic capacities where full-stack software development fluency and hospital operations leadership intersect to create immediate organizational value.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Roles Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <StaggerContainer delayChildren={0.15} staggerChildren={0.1} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {PORTFOLIO_DATA.careerInterests.map((interest) => {
             const Icon = iconMap[interest.iconName] || Sparkles;
             return (
-              <div
+              <StaggerItem
                 key={interest.title}
                 className="p-6 sm:p-7 rounded-2xl bg-[#1B1721] border border-[#302838] hover:border-[#542B78] transition-all duration-300 flex flex-col justify-between group shadow-xl shadow-black/40 hover:shadow-[#542B78]/15"
               >
@@ -94,17 +95,17 @@ export const CareerInterestsSection: React.FC = () => {
                   </a>
                 </div>
 
-              </div>
+              </StaggerItem>
             );
           })}
-        </div>
+        </StaggerContainer>
 
         {/* Framing Disclaimer */}
-        <div className="mt-12 text-center">
+        <ScrollReveal direction="up" delay={0.2} distance={15} className="mt-12 text-center">
           <p className="text-xs text-[#A7A1AF] italic max-w-xl mx-auto">
             These positions represent target domains of interest and strategic alignment based on verified competencies in technology and hospital operations.
           </p>
-        </div>
+        </ScrollReveal>
 
       </div>
     </section>
